@@ -132,7 +132,7 @@ const AuthForm = ({ type, form, onChange, onSubmit }) => {
             <InputWithTag>
               <div className="tag">닉네임</div>
               <input
-                autoComplete="new-password"
+                autoComplete="nick"
                 name="nick"
                 onChange={onChange}
                 value={form.nick}
