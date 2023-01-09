@@ -70,28 +70,28 @@ const textMap = {
   register: "회원가입",
 };
 
-const AuthForm = ({ type/*, form, onChange, onSubmit*/ }) => {
+const AuthForm = ({ type, form, onChange, onSubmit }) => {
   const text = textMap[type];
   return (
     <AuthFormBlock>
       <h3>{text}</h3>
-      <form /*onSubmit={onSubmit}*/>
+      <form onSubmit={onSubmit}>
         {type === 'login' && (
           <InputGroup>
             <input 
               autoComplete="email"
               name="email"
               placeholder="someone@example.com"
-              /* onChange={onChange}
-              value={form.email} */
+              onChange={onChange}
+              value={form.email}
             />
             <input
               autoComplete="new-password"
               name="password"
               placeholder="비밀번호"
               type="password"
-              /* onChange={onChange}
-              value={form.password} */
+              onChange={onChange}
+              value={form.password}
             />
           </InputGroup>
         )}
@@ -100,11 +100,11 @@ const AuthForm = ({ type/*, form, onChange, onSubmit*/ }) => {
             <InputWithTag>
               <div className="tag">이메일</div>
               <input 
-                autoComplete="username"
-                name="emial"
+                autoComplete="email"
+                name="email"
                 placeholder="someone@email.com"
-                /* onChange={onChange}
-                value={form.email} */
+                onChange={onChange}
+                value={form.email}
               />
             </InputWithTag>
             <InputWithTag>
@@ -114,8 +114,8 @@ const AuthForm = ({ type/*, form, onChange, onSubmit*/ }) => {
                 name="password"
                 placeholder="영문/숫자 포함 8~12자"
                 type="password"
-                /* onChange={onChange}
-                value={form.passwordConfirm} */
+                onChange={onChange}
+                value={form.password}
               />
             </InputWithTag>
             <InputWithTag>
@@ -125,8 +125,8 @@ const AuthForm = ({ type/*, form, onChange, onSubmit*/ }) => {
                 name="passwordConfirm"
                 placeholder="비밀번호 확인"
                 type="password"
-                /* onChange={onChange}
-                value={form.passwordConfirm} */
+                onChange={onChange}
+                value={form.passwordConfirm}
               />
             </InputWithTag>
             <InputWithTag>
@@ -134,8 +134,8 @@ const AuthForm = ({ type/*, form, onChange, onSubmit*/ }) => {
               <input
                 autoComplete="new-password"
                 name="nick"
-                /* onChange={onChange}
-                value={form.passwordConfirm} */
+                onChange={onChange}
+                value={form.nick}
               />
             </InputWithTag>
           </div>
