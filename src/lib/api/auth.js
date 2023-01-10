@@ -1,11 +1,17 @@
-import client from "./client";
+import { instance } from "./axiosInstance";
 
 // 로그인
 export const login = ({ email, password }) =>
-  client.post('/auth/login', { email, password });
+  instance.post('/auth/login', { email, password });
+
+// 로그아웃
+export const logout = () =>
+  instance.get('/auth/logout')
 
 // 회원가입
 export const register = ({ email, nick, password }) =>
-  client.post('/auth/join', { email, nick, password })
+  instance.post('/auth/join', { email, nick, password });
 
-// TODO: 로그인 상태 확인
+// 이메일 중복 확인
+export const emailCheck = ({ email }) =>
+  instance.post('/auth/emailCheck', { email });
