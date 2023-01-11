@@ -3,11 +3,13 @@ import palette from '../../lib/styles/palette';
 import Responsive from '../common/Responsive';
 
 const TitleBlock = styled.div`
-  position: absolute;
+  position: relative;
   width: 100%;
   min-width: 1000px;
   height: 6rem;
   background: ${palette.cyan[1]};
+  box-shadow: 0 3px 3px rgba(0, 0, 0, .2);
+  z-index: 1;
 `;
 const TitleInput = styled.input`
   width: 60%;

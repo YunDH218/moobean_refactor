@@ -24,6 +24,19 @@ const StyledButton = styled.button`
       font-size: 1.125rem;
     `
   }
+  ${props =>
+    props.bright &&
+    css`
+      color: ${palette.black};
+      font-weight: 600;
+      border: solid 1px ${palette.black};
+      border-radius: 0;
+      background: ${palette.cyan[0]};
+      &:hover {
+        background: ${palette.cyan[1]};
+      }
+    `
+  }
 `;
 
 const Button = props => <StyledButton {...props} />;

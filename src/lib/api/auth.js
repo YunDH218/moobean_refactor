@@ -1,4 +1,4 @@
-import { instance } from './axiosInstance';
+import { instance } from "./axiosInstance";
 
 // 로그인
 export const login = ({ email, password }) =>

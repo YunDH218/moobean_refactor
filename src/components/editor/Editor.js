@@ -1,49 +1,67 @@
 import TitleArea from './TitleArea';
-import 'quill/dist/quill.bubble.css';
-import styled from 'styled-components';
-import { useEffect, useRef } from 'react';
-import Quill from 'quill/quill';
 import Responsive from '../common/Responsive';
+import 'react-quill/dist/quill.snow.css';
+import ReactQuill from "react-quill";
+import styled from "styled-components";
+import palette from "../../lib/styles/palette";
+import Button from "../common/Button";
 
-const QuillWrapper = styled.div`
-  padding-top: 7rem;
+const EditorBlock = styled.div`
+  background: ${palette.gray[0]};
+  .wrapper {
+    padding-top: 1rem;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .2);
+  }
   .ql-editor {
-    padding: 0;
-    min-height: 320px;
+    min-height: 35rem;
     font-size: 1.125rem;
     line-height: 1.5;
   }
-  .ql-editor.ql-blank::before {
-    left: 0;
+  .ql-container {
+    border: none;
   }
 `;
 
+const Footer = styled.div`
+  background: white;
+  border-top: solid 1px ${palette.gray[1]};
+  padding: 1rem;
+  text-align: center;
+`
+
 const Editor = () => {
-  const quillElement = useRef(null);  // set DivElement which adapt Quill
-  const quillInstance = useRef(null); // Set Quill Instance
-
-  useEffect(() => {
-    quillInstance.current = new Quill(quillElement.current, {
-      theme: 'bubble',
-      modules: {
-        toolbar: [
-          [{ header: ['1', '2'] }],
-          ['bold', 'italic', 'underline', 'strike'],
-          [{ list: 'ordered' }, { list: 'bullet' }],
-          ['blockquote', 'code-block'],
-        ],
-      },
-    });
-  }, []);
-
+  const module = {
+    toolbar: [
+      [{ 'size': ['small', false, 'large', 'huge'] }],
+      [{ header: 1 }, { header: 2 }, ],
+      ['bold', 'italic', 'underline','strike', 'blockquote'],
+      [{ list: 'ordered'}, { list: 'bullet' }, {'indent': '-1'}, {'indent': '+1'}],
+    ],
+  };
+  const formats = [
+    'size',
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image',
+    'align', 'color', 'background',
+  ]
   return (
     <>
       <TitleArea />
-      <Responsive>
-        <QuillWrapper>
-          <div ref={quillElement} />
-        </QuillWrapper>
-      </Responsive>
+      <EditorBlock>
+        <Responsive className="wrapper">
+          <ReactQuill
+            theme="snow"
+            modules={module}
+            formats={formats}
+          />
+        </Responsive>
+      </EditorBlock>
+      <Footer>
+        <Button bright>작성 완료</Button>
+      </Footer>
     </>
   );
 }

@@ -7,7 +7,7 @@ const HeaderBlock = styled.div`
   position: absolute;
   width: 100%;
   min-width: 1000px;
-  height: 150px;
+  height: 8rem;
   ${props => props.cyan &&
     css`
       color: white;
@@ -48,7 +48,7 @@ const Wrapper = styled(Responsive)`
   }
 `;
 const Spacer = styled.div`
-  height: 10rem;
+  height: 8rem;
 `;
 
 const Header = props => {

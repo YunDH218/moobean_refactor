@@ -30,7 +30,7 @@ const RegisterForm = () => {
       // TODO: 오류 처리
       return;
     }
-    dispatch(register({ email, password }));
+    dispatch(register({ email, nick, password }));
   }
 
   // 컴포넌트가 처음 렌더링 될 때 form을 초기화함
