@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { Link } from 'react-router-dom';
 import palette from '../../lib/styles/palette';
 import Responsive from './Responsive';
@@ -8,6 +8,11 @@ const HeaderBlock = styled.div`
   width: 100%;
   min-width: 1000px;
   height: 150px;
+  ${props => props.cyan &&
+    css`
+      color: white;
+      background: ${palette.cyan[3]};
+  `}
 `;
 const Wrapper = styled(Responsive)`
   height: 8rem;
@@ -18,6 +23,9 @@ const Wrapper = styled(Responsive)`
     img {
       margin: auto;
       width: 300px;
+      ${props => props.cyan &&
+        css`width: 380px`
+      }
     }
   }
   .menu {
@@ -46,11 +54,11 @@ const Spacer = styled.div`
 const Header = props => {
   return (
     <>
-      <HeaderBlock>
+      <HeaderBlock {...props}>
         <Wrapper {...props}>
           <div className='menu'><Link to="/genre">장르</Link></div>
           <div className='menu'><Link to="/search">검색</Link></div>
-          <div className="logo"><Link to="/"><img src="img/logo.png" alt="MOOBEAN"/></Link></div>
+          <div className="logo"><Link to="/"><img src={props.cyan ? 'img/logo--white.png' : 'img/logo.png'} alt="MOOBEAN"/></Link></div>
           <div className='menu'><Link to="/login">로그인</Link></div>
           <div className='menu'><Link to="/">고객센터</Link></div>
         </Wrapper>

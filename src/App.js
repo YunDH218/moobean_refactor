@@ -16,7 +16,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/genre" element={<GenrePage />} />
       <Route path="/search" element={<SearchPage />} />
-      <Route path="/writereview" element={<ReviewWritePage />} />
+      <Route path="/writeReview" element={<ReviewWritePage />} />
       <Route path=":reviewId" element={<ReviewPage />} />
     </Routes>
   );

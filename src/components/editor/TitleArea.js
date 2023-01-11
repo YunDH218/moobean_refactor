@@ -37,7 +37,7 @@ const MovieSearchDropdown = styled.input`
   outline: none;
 `;
 
-const WriteReviewTitle = () => {
+const TitleArea = () => {
   return (
     <>
       <TitleBlock>
@@ -50,4 +50,4 @@ const WriteReviewTitle = () => {
   )
 }
 
-export default WriteReviewTitle;
+export default TitleArea;
