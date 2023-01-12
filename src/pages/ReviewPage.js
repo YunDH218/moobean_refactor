@@ -4,6 +4,7 @@ const ReviewPage = () => {
   return <>
     <Header cyan />
     <div>평론 읽기</div>
+
   </>
 };
 
