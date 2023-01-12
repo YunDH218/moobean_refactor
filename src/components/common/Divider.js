@@ -12,6 +12,9 @@ const Line = styled.div`
     border-top: solid ${props.weight} ${palette.gray[3]};
     margin: 1rem auto;
   `}
+  ${props => props.gray && `
+    border-color: ${palette.gray[2]};
+  `}
   position: relative;
   box-sizing: border-box;
 `
